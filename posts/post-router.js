@@ -40,7 +40,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // do it!
+  Posts.getById()
 });
 
 router.post('/', (req, res) => {
