@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
     .then(data => {
       // if empty dataset, do something different
       if (!data.length) {
-        res.json({ message: 'no post with said id'})
+        res.json({ message: 'no post with said id' })
       } else {
         res.json(data[0])
       }
@@ -81,7 +81,11 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const deletedRowsNumber = await Posts.delete(req.params.id)
-    if (!del)
+    if (!deletedRowsNumber) {
+      res.json({ message: 'no post with given id' })
+    } else {
+      res.json({ message: 'post deleted successfully' })
+    }
   } catch (error) {
     res.json({ message: error.message })
   }
