@@ -26,7 +26,13 @@ const Posts = {
 // db helpers end
 
 router.get('/', (req, res) => {
-  
+  Posts.getAll()
+    .then(data => {
+      res.json(data)
+    })
+    .catch(error => {
+      
+    })
 });
 
 router.get('/:id', (req, res) => {
