@@ -14,7 +14,8 @@ const Posts = {
     return db('posts') // short hand to do the same as above
   },
   getById(id) {
-    return db('posts').where({ id }).first()
+    // return db('posts').where({ id }).first()
+    return db('posts').where({ id })
   },
   create(post) {
 
@@ -43,6 +44,7 @@ router.get('/:id', (req, res) => {
   Posts.getById(req.params.id)
     .then(data => {
       // res.json(data[0])
+      // if empty dataset, do something different
       res.json(data) // if we do .first() above in the model
     })
     .catch(error => {
