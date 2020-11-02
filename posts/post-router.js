@@ -40,7 +40,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Posts.getById()
+  Posts.getById(req.params.id)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(error => {
+      
+    })
 });
 
 router.post('/', (req, res) => {
