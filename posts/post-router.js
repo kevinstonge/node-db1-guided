@@ -14,7 +14,7 @@ const Posts = {
     return db('posts') // short hand to do the same as above
   },
   getById(id) {
-    return db('posts')
+    return db('posts').where({ id })
   },
   create(post) {
 
