@@ -78,6 +78,16 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    await Posts.update(req.params.id, req.body)
+    const updatedPost = await Posts.getById(req.params.id).first()
+    res.json(updatedPost)
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
+
 router.delete('/:id', async (req, res) => {
   try {
     const deletedRowsNumber = await Posts.delete(req.params.id)
