@@ -43,9 +43,12 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Posts.getById(req.params.id)
     .then(data => {
-      // res.json(data[0])
       // if empty dataset, do something different
-      res.json(data) // if we do .first() above in the model
+      if (!data.length) {
+        res.json({ message: 'no post with said id'})
+      } else {
+        res.json(data[0])
+      }
     })
     .catch(error => {
       res.json({ message: error.message })
