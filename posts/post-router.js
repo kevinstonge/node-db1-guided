@@ -22,9 +22,9 @@ const Posts = {
   },
   async update(id, post) {
     try {
-
+      const result = await db('posts').where({ })
     } catch (e) {
-      
+      res.json({ error: e.message }) // development
     }
   },
   delete(id) {
