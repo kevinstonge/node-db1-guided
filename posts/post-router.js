@@ -70,7 +70,10 @@ router.post('/', (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    
+    const something = await Posts.update(req.params.id, req.body)
+    res.json(something)
+  } catch (error) {
+    res.json({ message: error.message })
   }
 });
 
