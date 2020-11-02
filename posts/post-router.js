@@ -112,8 +112,18 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
-
+router.delete('/:id', (req, res) => {
+  Posts.delete(req.params.id)
+    .then(rowsAffected => {
+      if (!deletedRowsNumber) {
+        res.json({ message: 'no post with given id' })
+      } else {
+        res.json({ message: 'post deleted successfully' })
+      }
+    })
+    .catch(error => {
+      res.json({ message: error.message })
+    })
 });
 
 module.exports = router;
