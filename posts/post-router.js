@@ -18,7 +18,7 @@ const Posts = {
     return db('posts').where({ id })
   },
   create(post) {
-
+    return db('posts').insert(post)
   },
   update(id, post) {
 
