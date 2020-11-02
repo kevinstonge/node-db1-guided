@@ -23,8 +23,7 @@ const Posts = {
   async update(id, post) {
     try {
       const result = await db('posts').where({ id }).update(post)
-      
-
+      res.json(result)
     } catch (e) {
       res.json({ error: e.message }) // development
     }
@@ -75,7 +74,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-
+  Posts.update()
 });
 
 router.delete('/:id', (req, res) => {
