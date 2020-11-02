@@ -114,7 +114,7 @@ router.delete('/:id', async (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Posts.delete(req.params.id)
-    .then(rowsAffected => {
+    .then(deletedRowsNumber => {
       if (!deletedRowsNumber) {
         res.json({ message: 'no post with given id' })
       } else {
