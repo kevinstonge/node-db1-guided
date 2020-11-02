@@ -68,13 +68,13 @@ router.post('/', (req, res) => {
     })
 });
 
-router.put('/:id', (req, res) => {
-  Posts.update(req.params.id, req.body)
-
+router.put('/:id', async (req, res) => {
+  try {
+    
+  }
 });
 
 router.delete('/:id', (req, res) => {
-
 });
 
 module.exports = router;
