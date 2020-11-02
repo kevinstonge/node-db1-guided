@@ -20,13 +20,8 @@ const Posts = {
   create(post) {
     return db('posts').insert(post)
   },
-  async update(id, post) {
-    try {
-      const result = await db('posts').where({ id }).update(post)
-      res.json(result)
-    } catch (e) {
-      res.json({ error: e.message }) // development
-    }
+  update(id, post) {
+    return db('posts').where({ id }).update(post)
   },
   delete(id) {
 
@@ -75,7 +70,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Posts.update(req.params.id, req.body)
-    
+
 });
 
 router.delete('/:id', (req, res) => {
