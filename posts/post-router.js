@@ -4,8 +4,14 @@ const express = require('express');
 const db = require('../data/db-config.js');
 
 const router = express.Router();
-// db helper start
 
+// db helper start
+const Posts = {
+  getAll() {
+
+  },
+  getById()
+}
 // db helpers end
 
 router.get('/', (req, res) => {
