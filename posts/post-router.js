@@ -68,21 +68,21 @@ router.post('/', (req, res) => {
     })
 });
 
-// router.put('/:id', async (req, res) => {
-//   try {
-//     const count = await Posts.update(req.params.id, req.body)
-//     if (!count) {
-//       res.json({ message: 'no post with that id' })
-//     } else {
-//       const updatedPost = await Posts.getById(req.params.id).first()
-//       res.json(updatedPost)
-//     }
-//   } catch (error) {
-//     res.json({ message: error.message })
-//   }
-// });
-
 router.put('/:id', async (req, res) => {
+  try {
+    const count = await Posts.update(req.params.id, req.body)
+    if (!count) {
+      res.json({ message: 'no post with that id' })
+    } else {
+      const updatedPost = await Posts.getById(req.params.id).first()
+      res.json(updatedPost)
+    }
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
+
+router.put('/:id', (req, res) => {
   Posts.update(req.params.id, req.body)
     .then(count => {
       if (!count) {
@@ -110,6 +110,10 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     res.json({ message: error.message })
   }
+});
+
+router.delete('/:id', async (req, res) => {
+
 });
 
 module.exports = router;
