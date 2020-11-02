@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
       res.json(data)
     })
     .catch(error => {
-      
+      res.json({ message: error.message })
     })
 });
 
