@@ -13,13 +13,15 @@ const Posts = {
   getById(id) {
 
   },
-  addPost(post) {
+  create(post) {
 
   },
-  updatePost() {
+  update(id, post) {
 
   },
-  delete
+  delete() {
+
+  }
 }
 // db helpers end
 
