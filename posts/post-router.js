@@ -24,7 +24,7 @@ const Posts = {
     return db('posts').where({ id }).update(post)
   },
   delete(id) {
-
+    return db('posts').where({ id }).del()
   }
 }
 // db helpers end
@@ -79,6 +79,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  
 });
 
 module.exports = router;
