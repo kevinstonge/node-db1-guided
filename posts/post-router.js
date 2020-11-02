@@ -14,7 +14,7 @@ const Posts = {
     return db('posts') // short hand to do the same as above
   },
   getById(id) {
-    return db('posts').where({ id })
+    return db('posts').where({ id }).first()
   },
   create(post) {
 
@@ -42,6 +42,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Posts.getById(req.params.id)
     .then(data => {
+      // res.json(data[0])
       res.json(data)
     })
     .catch(error => {
