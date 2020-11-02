@@ -10,7 +10,16 @@ const Posts = {
   getAll() {
 
   },
-  getById()
+  getById(id) {
+
+  },
+  addPost(post) {
+
+  },
+  updatePost() {
+
+  },
+  delete
 }
 // db helpers end
 
