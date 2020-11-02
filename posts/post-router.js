@@ -58,7 +58,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   Posts.create(req.body)
     .then(([id]) => {
-      res.json(data)
+      Posts.getById(id).then().catch
     })
     .catch(error => {
       res.json({ message: error.message })
