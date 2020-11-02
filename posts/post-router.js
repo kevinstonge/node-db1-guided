@@ -19,7 +19,7 @@ const Posts = {
   update(id, post) {
 
   },
-  delete() {
+  delete(id) {
 
   }
 }
