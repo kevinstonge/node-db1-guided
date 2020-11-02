@@ -20,8 +20,12 @@ const Posts = {
   create(post) {
     return db('posts').insert(post)
   },
-  update(id, post) {
-    
+  async update(id, post) {
+    try {
+
+    } catch (e) {
+      
+    }
   },
   delete(id) {
 
