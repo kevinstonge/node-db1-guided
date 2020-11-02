@@ -74,7 +74,8 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Posts.update()
+  Posts.update(req.params.id, req.body)
+    
 });
 
 router.delete('/:id', (req, res) => {
