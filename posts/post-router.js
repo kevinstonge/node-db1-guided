@@ -70,7 +70,10 @@ router.post('/', (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    await Posts.update(req.params.id, req.body)
+    const count = await Posts.update(req.params.id, req.body)
+    if (!count) {
+      res.json({message: 'no post with that id'})
+    }
     const updatedPost = await Posts.getById(req.params.id).first()
     res.json(updatedPost)
   } catch (error) {
