@@ -21,7 +21,7 @@ const Posts = {
     return db('posts').insert(post)
   },
   update(id, post) {
-
+    
   },
   delete(id) {
 
