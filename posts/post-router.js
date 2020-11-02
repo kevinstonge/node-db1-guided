@@ -72,10 +72,11 @@ router.put('/:id', async (req, res) => {
   try {
     const count = await Posts.update(req.params.id, req.body)
     if (!count) {
-      res.json({message: 'no post with that id'})
+      res.json({ message: 'no post with that id' })
+    } else {
+      const updatedPost = await Posts.getById(req.params.id).first()
+      res.json(updatedPost)
     }
-    const updatedPost = await Posts.getById(req.params.id).first()
-    res.json(updatedPost)
   } catch (error) {
     res.json({ message: error.message })
   }
