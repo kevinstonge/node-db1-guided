@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Posts.create(req.body)
-    .then(data => {
+    .then(([id]) => {
       res.json(data)
     })
     .catch(error => {
