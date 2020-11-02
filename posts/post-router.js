@@ -81,7 +81,9 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const unknownThing = await Posts.delete(req.params.id)
-    
+    res.json(unknownThing)
+  } catch (error) {
+    res.json({ message: error.message })
   }
 });
 
