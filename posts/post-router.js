@@ -4,6 +4,9 @@ const express = require('express');
 const db = require('../data/db-config.js');
 
 const router = express.Router();
+// db helper start
+
+// db helpers end
 
 router.get('/', (req, res) => {
 
