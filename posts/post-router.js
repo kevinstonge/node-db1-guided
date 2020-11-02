@@ -31,8 +31,8 @@ router.get('/', (req, res) => {
       res.json(data)
     })
     .catch(error => {
-      res.json({ message: 'oops, something went wrong' }) // production
-      // res.json({ error: error.message }) // development
+      // res.json({ message: 'oops, something went wrong' }) // production
+      res.json({ error: error.message }) // development
     })
 });
 
