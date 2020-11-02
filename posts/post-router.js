@@ -84,7 +84,16 @@ router.put('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   Posts.update(req.params.id, req.body)
-    .then(rowsAffected)
+    .then(rowsAffected => {
+      if (!count) {
+        res.json({ message: 'no post with that id' })
+      } else {
+        return Posts.getById(req.params.id).first()
+      }
+    })
+  .then(data => {
+    
+  })
 });
 
 router.delete('/:id', async (req, res) => {
