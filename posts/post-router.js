@@ -56,7 +56,13 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Posts.create()
+  Posts.create(req.body)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(error => {
+      res.json({ message: error.message })
+    })
 });
 
 router.put('/:id', (req, res) => {
