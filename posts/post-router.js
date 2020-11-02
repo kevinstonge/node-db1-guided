@@ -80,8 +80,8 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const unknownThing = await Posts.delete(req.params.id)
-    res.json({ message})
+    const deletedRowsNumber = await Posts.delete(req.params.id)
+    if (!del)
   } catch (error) {
     res.json({ message: error.message })
   }
