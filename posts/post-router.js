@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-
+  Posts.create()
 });
 
 router.put('/:id', (req, res) => {
