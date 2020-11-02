@@ -8,7 +8,7 @@ const router = express.Router();
 // db helper start
 const Posts = {
   getAll() {
-    return db.select('')
+    return db.select('id', 'title', 'contents')
   },
   getById(id) {
 
@@ -26,7 +26,7 @@ const Posts = {
 // db helpers end
 
 router.get('/', (req, res) => {
-
+  
 });
 
 router.get('/:id', (req, res) => {
